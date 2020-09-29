@@ -154,45 +154,6 @@ describe "Object relationships" do
       end
     end
 
-    describe "#meals" do
-      it "returns an Array of Meal instances associated with this waiter" do
-        howard = Customer.new("Howard", 30)
-        daniel = Customer.new("Daniel", 30)
-        terrance = Waiter.new("Terrance", 1)
-        joe = Waiter.new("Joe", 10)
-        esmery = Waiter.new("Esmery", 2)
-        andrew = Waiter.new("Andrew", 3)
-        
-        howard.new_meal(terrance, 15, 2)
-        howard.new_meal(joe, 15, 4)
-        howard.new_meal(andrew, 15, 5)
-        daniel.new_meal(terrance, 20, 1)
-        daniel.new_meal(esmery, 15, 3)
-        
-        expect(terrance.meals.length).to eq(2)
-        expect(terrance.meals.first.customer).to eq(howard)
-        expect(terrance.meals.last.customer).to eq(daniel)
-      end
-    end
-
-    describe "#best_tipper" do
-      it "returns the Customer instance associated with the meal that received the largest tip" do
-        howard = Customer.new("Howard", 30)
-        daniel = Customer.new("Daniel", 30)
-        lisa = Customer.new("Lisa", 27)
-        josh = Customer.new("Josh", 31)
-        steven = Customer.new("Steven", 28)
-        terrance = Waiter.new("Terrance", 1)
-        
-        
-        howard.new_meal(terrance, 15, 2)
-        daniel.new_meal(terrance, 15, 4)
-        lisa.new_meal(terrance, 15, 5)
-        josh.new_meal(terrance, 15, 1)
-        steven.new_meal(terrance, 15, 3)
-
-        expect(terrance.best_tipper).to eq(lisa)
-      end
-    end
+    
   end
 end
